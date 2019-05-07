@@ -45,9 +45,8 @@ sudo umount -f /mnt/shared
 # 如何安装sublime
 官宣：https://www.sublimetext.com/docs/3/linux_repositories.html#apt
 https://www.jianshu.com/p/55ad5b07ec0e
-
-## 方法一-失败：pga问题
 ```
+## 方法一-失败：pga问题
 tar -xvvf sublime_text_3_build_3126_x64.tar.bz
 sudo add-apt-repository ppa:webupd8team/sublime-text-3 
 error：解决：pga问题
