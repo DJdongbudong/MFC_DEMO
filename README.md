@@ -46,3 +46,44 @@ sudo umount -f /mnt/shared
 # 如何安装sublime
 官宣：https://www.sublimetext.com/docs/3/linux_repositories.html#apt
 https://www.jianshu.com/p/55ad5b07ec0e
+
+# 如何安装sublime
+## 方法一-失败：pga问题
+tar -xvvf sublime_text_3_build_3126_x64.tar.bz
+sudo add-apt-repository ppa:webupd8team/sublime-text-3 
+error：解决：pga问题
+sudo apt-get update 更新一下软件包
+sudo apt-get install sublime-text 
+## 方法二：
+apt
+1）Install the GPG key:
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+
+2）Ensure apt is set up to work with https sources:
+sudo apt-get install apt-transport-https
+
+3）Select the channel to use:
+Stable
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+Dev
+echo "deb https://download.sublimetext.com/ apt/dev/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+Update apt sources and install Sublime Text
+
+4）sudo apt-get update
+
+5）sudo apt-get install sublime-text
+
+6) 最后一步：https://blog.csdn.net/chenyulancn/article/details/80566555
+--- BEGIN LICENSE -----
+ZYNGA INC.
+50 User License
+EA7E-811825
+927BA117 84C9300F 4A0CCBC4 34A56B44
+985E4562 59F2B63B CCCFF92F 0E646B83
+0FD6487D 1507AE29 9CC4F9F5 0A6F32E3
+0343D868 C18E2CD5 27641A71 25475648
+309705B3 E468DDC4 1B766A18 7952D28C
+E627DDBA 960A2153 69A2D98A C87C0607
+45DC6049 8C04EC29 D18DFA40 442C680B
+1342224D 44D90641 33A3B9F2 46AADB8F
+------ END LICENSE ------
