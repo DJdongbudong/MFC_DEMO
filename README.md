@@ -116,3 +116,25 @@ E627DDBA 960A2153 69A2D98A C87C0607
 这里主要存放那些手动安装的软件，即不是通过“新立得”或apt-get安装的软件。它和/usr目录具有相类似的目录结构。让软件包管理器来管理/usr目录，而把自定义的脚本（scripts）放到/usr/local目录下面。 
 ### /media 
 这个目录是用来挂载那些usb接口的移动硬盘（包括U盘）、CD/DVD驱动器等等。
+
+# ubuntu opencv 安装opencv
+```
+sudo apt-get install build-essential
+sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+
+cd ~/opencv-3.4.3  # 进入opencv文件夹
+mkdir build # 创建build文件夹
+cd build # 进入build文件夹
+
+#cmake指令，如果没有特殊要求建议就选择默认的就可以
+#注意，后面的两个点千万不能省，代表了上级目录
+cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local ..  
+make -j7 # 多线程执行make任务
+
+# 最后一步，安装库文件
+sudo make install
+
+# 更新库
+sudo ldconfig
+```
