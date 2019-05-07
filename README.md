@@ -44,4 +44,5 @@ sudo umount -f /mnt/shared
 ## [参考](https://jingyan.baidu.com/article/a3761b2b87d2331577f9aa7e.html)
 
 # 如何安装sublime
+官宣：https://www.sublimetext.com/docs/3/linux_repositories.html#apt
 https://www.jianshu.com/p/55ad5b07ec0e
