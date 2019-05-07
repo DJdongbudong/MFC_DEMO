@@ -1,5 +1,5 @@
 # 如何使用虚拟机挂载共享文件
-## 步骤
+## [参考](https://jingyan.baidu.com/article/a3761b2b87d2331577f9aa7e.html)
 第一步：
 
 1）VMbox里面编辑共享文件夹路径D:\DongDemo\VM\Ubuntu18\Share 取名Share【随便自己取】第二步：
@@ -40,8 +40,6 @@ sudo cp -Rf ./VBox_GAs_6.0.6 /mnt/shared/
 ```
 sudo umount -f /mnt/shared
 ```
-
-## [参考](https://jingyan.baidu.com/article/a3761b2b87d2331577f9aa7e.html)
 
 # 如何安装sublime
 官宣：https://www.sublimetext.com/docs/3/linux_repositories.html#apt
