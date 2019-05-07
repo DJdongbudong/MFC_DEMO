@@ -41,5 +41,5 @@ sudo cp -Rf ./VBox_GAs_6.0.6 /mnt/shared/
 sudo umount -f /mnt/shared
 ```
 
-## 参考(https://jingyan.baidu.com/article/a3761b2b87d2331577f9aa7e.html)
+## [参考](https://jingyan.baidu.com/article/a3761b2b87d2331577f9aa7e.html)
 
