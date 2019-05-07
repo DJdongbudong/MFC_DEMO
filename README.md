@@ -1,4 +1,5 @@
 # 如何使用虚拟机挂载共享文件
+```
 ## [参考](https://jingyan.baidu.com/article/a3761b2b87d2331577f9aa7e.html)
 第一步：
 
@@ -15,29 +16,29 @@
 1）Ctrl+Alt+T：打开终端
 
 2）linux创建共享文件夹，	
-```
+
 	CMD：	sudo mkdir /mnt/shared
-```
+
 3）linux挂载虚拟机的文件夹到Linux的shared中，
-```
+
 	CMD：	sudo mount -t vboxsf Share /mnt/shared
-```
+
 4) 挂载：
 手动挂载：输入
-```
+
 sudo mount -t vboxsf Share /mnt/shared进行手动挂载
-```
+
 自动挂载：/etc/fstab的文件最后写入如下：
-```
+
 Share /mnt/shared vboxsf rw,gid=dong,uid=dong,auto 0 0
-```
+
 
 5）复制文件：CMD: 
-```
+
 sudo cp -Rf ./VBox_GAs_6.0.6 /mnt/shared/
-```
+
 6）卸载共享文件夹：
-```
+
 sudo umount -f /mnt/shared
 ```
 
@@ -52,31 +53,26 @@ sudo add-apt-repository ppa:webupd8team/sublime-text-3
 error：解决：pga问题
 sudo apt-get update 更新一下软件包
 sudo apt-get install sublime-text 
-```
+
 ## 方法二：
 apt
-```
 1）Install the GPG key:
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-```
-```
+
 2）Ensure apt is set up to work with https sources:
 sudo apt-get install apt-transport-https
-```
-```
+
 3）Select the channel to use:
 Stable
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 Dev
 echo "deb https://download.sublimetext.com/ apt/dev/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 Update apt sources and install Sublime Text
-```
-```
+
 4）sudo apt-get update
-```
-```
+
 5）sudo apt-get install sublime-text
-```
+
 6) 最后一步：https://blog.csdn.net/chenyulancn/article/details/80566555
 --- BEGIN LICENSE -----
 ZYNGA INC.
@@ -91,7 +87,9 @@ E627DDBA 960A2153 69A2D98A C87C0607
 45DC6049 8C04EC29 D18DFA40 442C680B
 1342224D 44D90641 33A3B9F2 46AADB8F
 ------ END LICENSE ------
+```
 ## ubuntu 文件夹功能说明
+```
 ### / 
 这就是根目录，一台电脑有且只有一个根目录，所有的文件都是从这里开始的。举个例子：当你在终端里输入“/home”，你其实是在告诉电脑，先从/（根目录）开始，再进入到home目录。 
 ### /root 
@@ -116,7 +114,7 @@ E627DDBA 960A2153 69A2D98A C87C0607
 这里主要存放那些手动安装的软件，即不是通过“新立得”或apt-get安装的软件。它和/usr目录具有相类似的目录结构。让软件包管理器来管理/usr目录，而把自定义的脚本（scripts）放到/usr/local目录下面。 
 ### /media 
 这个目录是用来挂载那些usb接口的移动硬盘（包括U盘）、CD/DVD驱动器等等。
-
+```
 # ubuntu opencv 安装opencv
 ```
 sudo apt-get install build-essential
