@@ -52,3 +52,12 @@
 	}
 */
 ```
+# MFC 画图到指定ID上
+```
+	/*
+	功能;Mat 画入指定IDC
+	第一步：头文件：在当前的类的的头文件代码区头包含：#include "CvvImage.h"
+	第二步：将函数在当前所在的类的头文件声明：void CMFC_CalibrationDlg::drawToDC(IplImage* image, UINT ID)
+	第三步：调用：IplImage image = Mat_src;		drawToDC(&image, ID)
+	*/
+```
