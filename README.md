@@ -56,8 +56,24 @@
 ```
 	/*
 	功能;Mat 画入指定IDC
-	第一步：头文件：在当前的类的的头文件代码区头包含：#include "CvvImage.h"
+	第一步：头文件：在当前的类的的头文件代码区头包含：#include "CvvImage.h"{CvvImage.h\CvvImage.cpp}
 	第二步：将函数在当前所在的类的头文件声明：void CMFC_CalibrationDlg::drawToDC(IplImage* image, UINT ID)
 	第三步：调用：IplImage image = Mat_src;		drawToDC(&image, ID)
 	*/
+```
+```
+void XXXDlg::drawToDC(IplImage* image, UINT ID)//画到指定ID（默认IDC_STATIC）在头文件声明函数
+{
+	CDC* pDC = GetDlgItem(ID)->GetDC();
+	HDC pHdc = pDC->GetSafeHdc();
+
+	CRect rect;
+	GetDlgItem(ID)->GetClientRect(&rect);
+
+	CvvImage cimg;
+	cimg.CopyOf(image);
+	cimg.DrawToHDC(pHdc, rect);
+
+	ReleaseDC(pDC);
+}
 ```
