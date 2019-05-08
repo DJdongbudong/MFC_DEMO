@@ -54,14 +54,11 @@
 ```
 # MFC 画图到指定ID上
 ```
-	/*
-	功能;Mat 画入指定IDC
-	第一步：头文件：在当前的类的的头文件代码区头包含：#include "CvvImage.h"{CvvImage.h\CvvImage.cpp}
-	第二步：将函数在当前所在的类的头文件声明：void CMFC_CalibrationDlg::drawToDC(IplImage* image, UINT ID)
-	第三步：调用：IplImage image = Mat_src;		drawToDC(&image, ID)
-	*/
-```
-```
+/*
+功能;Mat 画入指定IDC
+第一步：头文件：在当前的类的的头文件代码区头包含：#include "CvvImage.h"{CvvImage.h\CvvImage.cpp}
+第二步：将函数在当前所在的类的头文件声明：void CMFC_CalibrationDlg::drawToDC(IplImage* image, UINT ID)
+
 void XXXDlg::drawToDC(IplImage* image, UINT ID)//画到指定ID（默认IDC_STATIC）在头文件声明函数
 {
 	CDC* pDC = GetDlgItem(ID)->GetDC();
@@ -76,7 +73,11 @@ void XXXDlg::drawToDC(IplImage* image, UINT ID)//画到指定ID（默认IDC_STAT
 
 	ReleaseDC(pDC);
 }
+
+第三步：调用：IplImage image = Mat_src;		drawToDC(&image, ID)
+*/
 ```
+
 # MFC创建子弹窗
 ```
 第一步：*.rc资源处插入 Dialog -》 对新产生的窗口右键添加类，取名最好带 xxDlg -》 自动生成 xxDlg.h 和 xxDlg.cpp 文件
