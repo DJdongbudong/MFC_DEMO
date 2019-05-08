@@ -77,3 +77,7 @@ void XXXDlg::drawToDC(IplImage* image, UINT ID)//画到指定ID（默认IDC_STAT
 	ReleaseDC(pDC);
 }
 ```
+# MFC创建子弹窗
+```
+*.rc资源处插入 Dialog -》 对新产生的窗口右键添加类，取名最好带xxDlg -》 自动生成 xxDlg.h 和 xxDlg.cpp 文件
+```
