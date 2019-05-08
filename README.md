@@ -79,5 +79,10 @@ void XXXDlg::drawToDC(IplImage* image, UINT ID)//画到指定ID（默认IDC_STAT
 ```
 # MFC创建子弹窗
 ```
-*.rc资源处插入 Dialog -》 对新产生的窗口右键添加类，取名最好带xxDlg -》 自动生成 xxDlg.h 和 xxDlg.cpp 文件
+第一步：*.rc资源处插入 Dialog -》 对新产生的窗口右键添加类，取名最好带 xxDlg -》 自动生成 xxDlg.h 和 xxDlg.cpp 文件
+第二步：在父窗口头文件添加新的子窗口头文件。
+第三步：使用父窗口进行按钮设置，对按钮A添加事务处理程序，在该事务处理程序写入如下代码：
+	xxDlg Dlgclass;
+	Dlgclass.DoModal();//当按A按钮即可调用-模态
+
 ```
