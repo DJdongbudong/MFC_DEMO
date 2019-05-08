@@ -87,3 +87,67 @@ void XXXDlg::drawToDC(IplImage* image, UINT ID)//画到指定ID（默认IDC_STAT
 	Dlgclass.DoModal();//当按A按钮即可调用-模态
 
 ```
+# 按钮事件——打开图片
+```
+// TODO:  在此添加命令处理程序代码
+// 读取图片——global
+CString filter;
+filter = "所有文件(*.bmp,*.jpg,*.gif,*tiff)|*.bmp;*.jpg;*.gif;*.tiff| BMP(*.bmp)|*.bmp| JPG(*.jpg)|*.jpg| GIF(*.gif)|*.gif| TIFF(*.tiff)|*.tiff||";
+CFileDialog dlg(TRUE, NULL, NULL, OFN_HIDEREADONLY, filter, NULL);
+
+// 按下确定按钮 dlg.DoModal() 函数显示对话框
+if (dlg.DoModal() == IDOK)
+{
+	// 打开对话框获取图像信息
+	CString BmpName = dlg.GetPathName();     //获取文件路径名   如D:\pic\abc.bmp
+	CString EntName = dlg.GetFileExt();      //获取文件扩展名
+	EntName.MakeLower();                     //将文件扩展名转换为一个小写字符
+
+	// 加载图片
+	{
+		/*【方式一】*/
+		//【第一步：CImage加载图片】
+		ATL::CImage Image;
+		Image.Load((BmpName));
+
+		if (Image.IsNull())
+		{
+			flag_openimage = false;
+			MessageBox(_T("没加载成功"));
+			return;
+		}
+		else
+		{
+			// 标志位——flag_camera
+			flag_openimage = true; //相机标志位
+		}
+		//【第二步：CRect获取控件范围】
+		CRect rect;//定义矩形类  
+		GetDlgItem(IDC_STATIC_SRC)->GetClientRect(&rect);//将窗口矩形选中到picture控件上 
+
+		//【第三步：CDC】			
+		CDC *pDC = GetDC();//获取对话框控件
+		pDC = GetDlgItem(IDC_STATIC_SRC)->GetDC();  // 获取picture控件DC
+		SetStretchBltMode(pDC->m_hDC, HALFTONE);//调整图片缩放平均颜色
+		Image.Draw(pDC->m_hDC, rect);
+
+		/*【方式二】*/
+		USES_CONVERSION;
+		string str(W2A(BmpName));
+		global = imread(str);
+		if (global.empty())
+		{
+			flag_openimage = false;
+			MessageBox(_T("没加载成功"));
+			return;
+		}
+		else
+		{
+			// 标志位——flag_camera
+			global_temp = global;
+			flag_openimage = true; //相机标志位
+		}
+		return;
+	}
+}
+```
